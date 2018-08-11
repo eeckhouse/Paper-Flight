@@ -31,6 +31,6 @@ public class CameraScript : MonoBehaviour
 			//print("There is something in front of the object! " + hit.point );
 			transform.position = hit.point;
 		}
-
+        //needs to retarget camera...
 	}
 }
