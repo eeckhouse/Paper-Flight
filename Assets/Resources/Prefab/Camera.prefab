@@ -84,7 +84,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 6300
+  far clip plane: 6500
   field of view: 30
   orthographic: 0
   orthographic size: 5
@@ -185,7 +185,7 @@ MonoBehaviour:
   target: {fileID: 400010, guid: 8dbdb4ed190c6f44da49ff56457fec83, type: 2}
   lookTarget: {fileID: 400008, guid: 8dbdb4ed190c6f44da49ff56457fec83, type: 2}
   player: {fileID: 400000, guid: 8dbdb4ed190c6f44da49ff56457fec83, type: 2}
-  smooth: 5
+  smooth: 50
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

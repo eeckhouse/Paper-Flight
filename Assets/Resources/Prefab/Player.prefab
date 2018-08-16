@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd80580330f7ae48b80a8bef1ad91e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smooth: 5
+  smooth: 100
   connect: {fileID: 100000, guid: b6d7904d6925c8241bb809f4f55db73a, type: 2}
   lookTarget: {fileID: 400008}
   target: {fileID: 400010}
