@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class NetworkManager : MonoBehaviour 
 {
 //change publishing settings change to "Run in Background"
@@ -62,7 +62,8 @@ public class NetworkManager : MonoBehaviour
 			}
 		}
 		player.ResetValues ();
-		Application.LoadLevel("Startup");
+        SceneManager.LoadScene("Startup");
+		//Application.LoadLevel("Startup");
 	}
 
 	void OnPlayerDisconnected(NetworkPlayer p)
@@ -138,7 +139,9 @@ public class NetworkManager : MonoBehaviour
 			}
 			if(GUI.Button(new Rect(0,0,100,25),"Back"))
 			{
-				Application.LoadLevel("Startup");
+                SceneManager.LoadScene("Startup");
+
+               // Application.LoadLevel("Startup");
 			}
 		}
 		if(!gameStarted)//if server is created, but game has not started
@@ -191,7 +194,9 @@ public class NetworkManager : MonoBehaviour
 		}
 		if(gameDone)
 		{
-			Application.LoadLevel("EndLevel");
+            SceneManager.LoadScene("EndLevel");
+
+            //Application.LoadLevel("EndLevel");
 		}
 	}
 
