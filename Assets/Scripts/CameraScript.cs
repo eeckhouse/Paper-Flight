@@ -24,13 +24,13 @@ public class CameraScript : MonoBehaviour
 		transform.LookAt (lookTarget.position);
 
 		Vector3 fwd = transform.position - player.position;
-		/*RaycastHit hit;
+		//RaycastHit hit;
 		//Debug.DrawRay (player.position, fwd, Color.green, fwd.magnitude);
-		if (Physics.Raycast (player.position, fwd, out hit, fwd.magnitude))
+		//if (Physics.Raycast (player.position, fwd, out hit, fwd.magnitude))
 		{
 			//print("There is something in front of the object! " + hit.point );
-			transform.position = hit.point;
-		}*/
+			//transform.position = hit.point;
+		}
         //needs to retarget camera...
 	}
 }
