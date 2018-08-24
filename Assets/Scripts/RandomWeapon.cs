@@ -4,11 +4,12 @@ using System.Collections;
 public class RandomWeapon : MonoBehaviour 
 {
 	public GameObject[] WeaponPrefabs;
-	public float waitTime = 30;
+	public float waitTime = 5;
 	MeshRenderer mRender;
-    public float rotationSpeed;
+  
 	bool taken = false;
 	float t = 0;
+     public GameObject prefadWeaponPickUp = GameObject.FindGameObjectWithTag("randomWeapon");
 
 	void Start()
 	{
@@ -19,8 +20,9 @@ public class RandomWeapon : MonoBehaviour
 	void Update()
 	{
 
-		transform.position = new Vector3 (transform.position.x, Mathf.PingPong (Time.deltaTime, 2.0f), transform.position.z);
+		//transform.position = new Vector3 (transform.position.x, Mathf.PingPong (Time.deltaTime, 2.0f), transform.position.z);
 
+       
         //respawn if actor has been destroy, respawn item, with same position 
         // get position, set position.
 		if(taken)
@@ -28,8 +30,11 @@ public class RandomWeapon : MonoBehaviour
 			t += Time.deltaTime;
 			if(t >= waitTime)
 			{
-				taken = false;
+
+              
+                taken = false;
 				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,true);
+
 			}
             
 		}
@@ -42,25 +47,35 @@ public class RandomWeapon : MonoBehaviour
 		{
 			if(taken == false)
 			{
-				taken = true;
+                print("has been taken");
+                taken = true;
 				t = 0;
 				int wpn = RandomPrefab();
-
+                
 				//respawn game object
 				// get world postion
 				GameObject weaponGenetor = Resources.Load("Prefab/randomWeapon")as GameObject;
-				//Vector3 weaponLocation = transform.position;
-				//not respawning
-				Instantiate(weaponGenetor);
+				Vector3 weaponLocation = transform.position;
+                Destroy(gameObject);
 
-				Destroy(gameObject);
-				//need to create sprite animation, with a GUI Layout
-				GameObject prefab = WeaponPrefabs[wpn];
-				Shooting Shoot = other.GetComponentInParent<Shooting>();
-				Shoot.Secondary = prefab;
-			//need to destroy game object
-			
-				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,false);
+
+                //is respawning needs detla time, give time in between
+                t+=Time.deltaTime;
+                if (t >= waitTime)
+                {
+                    Instantiate(weaponGenetor, transform.position, transform.rotation);
+
+
+                    //need to create sprite animation, with a GUI Layout
+                    GameObject prefab = WeaponPrefabs[wpn];
+                    Shooting Shoot = other.GetComponentInParent<Shooting>();
+                    Shoot.Secondary = prefab;
+                    //need to destroy game object
+
+                    GetComponent<NetworkView>().RPC("setEnable", RPCMode.AllBuffered, false);
+
+                }
+                
 			}
 		}
 	}

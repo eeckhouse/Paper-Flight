@@ -4273,7 +4273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &572672018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4799,7 +4800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!1 &631958334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7693,7 +7695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!1001 &924920698
 Prefab:
   m_ObjectHideFlags: 0
@@ -8255,7 +8258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &977764003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10520,7 +10524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!1001 &1241656674
 Prefab:
   m_ObjectHideFlags: 0
@@ -10722,7 +10727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1291941189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10985,7 +10991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1316308706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11391,7 +11398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1362124380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13957,7 +13965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1543519562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15181,7 +15190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1625929883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15363,7 +15373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1633818694
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16352,7 +16363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1703840423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17223,7 +17235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!65 &1816577325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20007,6 +20020,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114969405325652966, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+        type: 2}
+      propertyPath: prefadWeaponPickUp
+      value: 
+      objectReference: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a25f4b97e9d32ae47a5c11911c3b80d0, type: 2}
   m_IsPrefabParent: 0
@@ -20484,7 +20503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefabs: []
   waitTime: 30
-  rotationSpeed: 0
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!1001 &2121161322
 Prefab:
   m_ObjectHideFlags: 0
