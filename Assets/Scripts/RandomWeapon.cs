@@ -6,7 +6,7 @@ public class RandomWeapon : MonoBehaviour
 	public GameObject[] WeaponPrefabs;
 	public float waitTime = 30;
 	MeshRenderer mRender;
-
+    public float rotationSpeed;
 	bool taken = false;
 	float t = 0;
 
@@ -21,8 +21,8 @@ public class RandomWeapon : MonoBehaviour
 
 		transform.position = new Vector3 (transform.position.x, Mathf.PingPong (Time.deltaTime, 2.0f), transform.position.z);
 
-
-
+        //respawn if actor has been destroy, respawn item, with same position 
+        // get position, set position.
 		if(taken)
 		{
 			t += Time.deltaTime;
@@ -31,10 +31,11 @@ public class RandomWeapon : MonoBehaviour
 				taken = false;
 				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,true);
 			}
+            
 		}
-	}
+    }
 
-	void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
 	{
 		Debug.Log ("Player enter collider");//collider works
 		if(other.tag == "Player")//if collides with the mesh tagged player
