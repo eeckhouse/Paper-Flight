@@ -16,9 +16,9 @@ public class TestWorkingVar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        print(coffee);
+       // print(coffee);
 
-        if(coffee)
+        if(coffee==true)
         {
             print("it's dark coffee");
 
@@ -33,7 +33,7 @@ public class TestWorkingVar : MonoBehaviour {
         if(other.tag == "Player")
         {
             coffee = true;
-
+            Destroy(gameObject);
 
         }
     }
