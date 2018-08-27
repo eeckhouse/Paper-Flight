@@ -4,11 +4,12 @@ using System.Collections;
 public class RandomWeapon : MonoBehaviour 
 {
 	public GameObject[] WeaponPrefabs;
-	public int waitTime = 30;
+	
 	MeshRenderer mRender;
-  
+    public GameObject weaponPickup;
 	bool taken = false;
 	float t = 0;
+    public float waitTime = 30;
     // public GameObject prefadWeaponPickUp = GameObject.FindGameObjectWithTag("randomWeapon");
 
 	void Start()
@@ -31,8 +32,7 @@ public class RandomWeapon : MonoBehaviour
                 // get world postion
                 GameObject weaponGenetor = Resources.Load("Prefab/randomWeapon") as GameObject;
                 Vector3 weaponLocation = transform.position;
-                Destroy(gameObject);
-                Update();
+                
 
                 //is respawning needs detla time, give time in between
 
@@ -63,14 +63,14 @@ public class RandomWeapon : MonoBehaviour
 		{
             //need a time delay
             print("hello");
-            
-			t += Time.deltaTime;
+            Destroy(gameObject);
+
+            t += Time.deltaTime;
             print (t);
 
-			if(t >= waitTime)
+            if (t >= waitTime)
 			{
-
-                
+                Instantiate(weaponPickup, transform.position, transform.rotation);
                 taken = false;
 				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,true);
 

@@ -157,10 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100000, guid: 7f8e378b20ac15d41aeadd3bb66d5426, type: 2}
+  - {fileID: 100000, guid: 0068952fe0c3d6247aedccb2da345861, type: 2}
+  - {fileID: 100000, guid: dbd6a1fcafb82994bb1b10d9b1706c1f, type: 2}
+  weaponPickup: {fileID: 1045207608029750}
   waitTime: 30
-  prefadWeaponPickUp: {fileID: 1045207608029750}
