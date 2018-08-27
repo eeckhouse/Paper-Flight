@@ -86,8 +86,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.811563, y: 22.758808, z: 11.321068}
-  m_Center: {x: 0.00007724762, y: -0.27126503, z: 0.5429249}
+  m_Size: {x: 112.8694, y: 136.55286, z: 67.926414}
+  m_Center: {x: 0.00046348578, y: -1.6275902, z: 3.2575498}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -121,6 +121,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7f8e378b20ac15d41aeadd3bb66d5426, type: 2}
   - {fileID: 100000, guid: 0068952fe0c3d6247aedccb2da345861, type: 2}
   waitTime: 30
+  prefadWeaponPickUp: {fileID: 1045207608029750, guid: a25f4b97e9d32ae47a5c11911c3b80d0,
+    type: 2}
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
