@@ -70,6 +70,7 @@ public class RandomWeapon : MonoBehaviour
 
             if (t >= waitTime)
 			{
+                // please check if this needs to added to a network group
                 Instantiate(weaponPickup, transform.position, transform.rotation);
                 taken = false;
 				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,true);
