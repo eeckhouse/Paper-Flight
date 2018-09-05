@@ -53,13 +53,14 @@ public class PlayerControl : MonoBehaviour
             // the put that float in accel
 			GetComponent<Rigidbody>().AddForce(transform.forward * (speed+accelerator), ForceMode.VelocityChange);
 
-			h = Input.GetAxis("Horizontal") * rotationSpeed;
-			v = Input.GetAxis("Vertical") * rotationSpeed;
+			//h = Input.GetAxis("Horizontal") * rotationSpeed;
+
+            v = Input.GetAxis("Vertical") * rotationSpeed;
 
 
             //alternative  control inside the inputs
             float x = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-
+            
             float y = Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
 
             float z = h * Time.deltaTime;
