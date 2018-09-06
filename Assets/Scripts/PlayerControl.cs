@@ -25,7 +25,13 @@ public class PlayerControl : MonoBehaviour
 	
 	public Transform originalRotationValue;
 
-	void Start()
+    /* notes: if console controller is detect make it true. and if so make use this make use this controls 
+     * make a function for the other controls disable them by creating a boolean
+     * change the controls the mouse inputs 
+        */
+
+
+    void Start()
 	{
 		// Make the rigid body not change rotation
 		if (GetComponent<Rigidbody>())
@@ -43,16 +49,21 @@ public class PlayerControl : MonoBehaviour
 			// Movement
 			float f = Input.GetAxis("accelerator");
 			float accelerator = accelspeed*f;
-			// the put that float in accel
+		
+            // the put that float in accel
 			GetComponent<Rigidbody>().AddForce(transform.forward * (speed+accelerator), ForceMode.VelocityChange);
 
-			h = Input.GetAxis("Horizontal") * rotationSpeed;
-			v = Input.GetAxis("Vertical") * rotationSpeed;
+			//h = Input.GetAxis("Horizontal") * rotationSpeed;
+
+            v = Input.GetAxis("Vertical") * rotationSpeed;
 
 
-			float x = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-			float y = Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
-			float z = h * Time.deltaTime;
+            //alternative  control inside the inputs
+            float x = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
+            
+            float y = Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
+
+            float z = h * Time.deltaTime;
 			//Debug.Log (z);
 			transform.rotation *= Quaternion.Euler (-y, x, z);
 

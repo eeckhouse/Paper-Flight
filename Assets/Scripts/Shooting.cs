@@ -13,6 +13,10 @@ public class Shooting : MonoBehaviour
 	public GameObject Secondary;
 	public float secondarySpeed = 300;
 	
+    /*
+     * add input to the input manager for the xbox controller in project for the trigger buttons
+     */
+
 	void Start()
 	{
 		if(GetComponent<NetworkView>().isMine)

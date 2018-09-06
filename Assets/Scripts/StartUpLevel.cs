@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class StartUpLevel : MonoBehaviour {
 
 	public string nametoEdit = "";
@@ -52,7 +52,8 @@ public class StartUpLevel : MonoBehaviour {
 		{
 			if(nametoEdit.Length >= 1)
 			{
-				Application.LoadLevel("LVL1");
+				//Application.LoadLevel("LVL1");
+                SceneManager.LoadScene("prototype_001");
 			}
 			if(nametoEdit.Length < 1)
 			{
