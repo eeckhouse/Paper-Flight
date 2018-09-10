@@ -11,7 +11,7 @@ public class HealthbarTextScript : MonoBehaviour
 	public float healthbarLength = 200;
 
 	public GameObject explosionPrefab;	//temp explosion is a particle system
-
+    public GameObject fireLowHealth; // need to add low heath to spawn fire on the airplane, while it takes no damage
 	public PlayerData player;
 
 	public float waitTime = 3;					//spawn delay
@@ -61,7 +61,7 @@ public class HealthbarTextScript : MonoBehaviour
 	{
 		player.AddToScore (1);
 	}
-
+    
 	IEnumerator PlayerDeath()
 	{
 		PlayerC.enabled = false;										//all actions are disabled, shooting, moving and the explosoin is instantiated

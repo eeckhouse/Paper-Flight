@@ -70,7 +70,7 @@ public class RandomWeapon : MonoBehaviour
 
             if (t >= waitTime)
 			{
-                Instantiate(weaponPickup, transform.position, transform.rotation);
+                Network.Instantiate(weaponPickup, transform.position, transform.rotation,0);
                 taken = false;
 				GetComponent<NetworkView>().RPC("setEnable",RPCMode.AllBuffered,true);
 
