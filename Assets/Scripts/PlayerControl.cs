@@ -4,86 +4,165 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour
 {
 
-	
-	//float sensitivityX = 1.4F;
-	//float sensitivityY = 160.6F;
 
-	//float minimumY = -160F;
-	//float maximumY = 160F;
-	
-	//float rotationY = 0F;
-	
-	public float speed = 5f;
-	public float rotationSpeed = 100.0f;
-	public int selected = 0;
-	public float accelspeed = 16f;
-	
-	public Transform Target;
-	
-	float h;
-	float v;
-	
-	public Transform originalRotationValue;
+    //float sensitivityX = 1.4F;
+    //float sensitivityY = 160.6F;
 
-    /* notes: if console controller is detect make it true. and if so make use this make use this controls 
-     * make a function for the other controls disable them by creating a boolean
-     * change the controls the mouse inputs 
-        */
+    //float minimumY = -160F;
+    //float maximumY = 160F;
+
+    //float rotationY = 0F;
+
+    public float speed = 5f;
+    public float rotationSpeed = 100.0f;
+    public int selected = 0;
+    public float accelspeed = 16f;
+
+    private int Xbox_One_Controller = 0;
+    private int PS4_Controller = 0;
+    private int computerControls = 0;
+
+    public Transform Target;
+
+    float h;
+    float v;
+    float x;
+    float f;
+    float y;
+
+    float z;
+    public Transform originalRotationValue;
 
 
     void Start()
-	{
-		// Make the rigid body not change rotation
-		if (GetComponent<Rigidbody>())
-			GetComponent<Rigidbody>().freezeRotation = true;
-		
-		originalRotationValue = gameObject.transform;
-	}
+    {
+        // Make the rigid body not change rotation
+        if (GetComponent<Rigidbody>())
+            GetComponent<Rigidbody>().freezeRotation = true;
 
-	void Update()
-	{
+        originalRotationValue = gameObject.transform;
+    }
 
-		if (GetComponent<NetworkView>().isMine)
-		{
+    void Update()
+    {
+        string[] names = Input.GetJoystickNames();
 
-			// Movement
-			float f = Input.GetAxis("accelerator");
-			float accelerator = accelspeed*f;
-		
+        for (int x = 0; x < names.Length; x++)
+        {
+            // prints 0
+            // print(names[x].Length);
+            print(names[x]);
+
+            if (names[x].Length == 25)
+            {
+                print("PS4 CONTROLLER IS CONNECTED");
+                PS4_Controller = 1;
+                Xbox_One_Controller = 0;
+            }
+            if (names[x].Length == 33)
+            {
+
+                print("XBOX ONE CONTROLLER IS CONNECTED");
+                //set a controller bool to true
+                PS4_Controller = 0;
+                Xbox_One_Controller = 1;
+            }
+        }
+
+
+        if (GetComponent<NetworkView>().isMine)
+        { 
+            if (Xbox_One_Controller == 1)
+            {
+                Xbox();
+            }
+            else if (PS4_Controller == 1)
+            {
+                playstation();
+            }
+            else
+            {
+                computer();
+            }
+        
+
+            // Movement
+
+            float accelerator = accelspeed * f;
+
             // the put that float in accel
-			GetComponent<Rigidbody>().AddForce(transform.forward * (speed+accelerator), ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(transform.forward * (speed + accelerator), ForceMode.VelocityChange);
 
-			//h = Input.GetAxis("Horizontal") * rotationSpeed;
-
-            v = Input.GetAxis("Vertical") * rotationSpeed;
 
 
             //alternative  control inside the inputs
-            float x = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-            
-            float y = Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
 
-            float z = h * Time.deltaTime;
-			//Debug.Log (z);
-			transform.rotation *= Quaternion.Euler (-y, x, z);
 
-		}
 
+            z = h * Time.deltaTime;
+            //Debug.Log (z);
+            transform.rotation *= Quaternion.Euler(-y, x, z);
+
+        }
+        
 		else
 		{
-			SyncedMovement();
-		}
+            SyncedMovement();
+        }
 
 
-	}
+    }
 
-	private float lastSynchronizationTime = 0f;				//network values to send position and rotation to others
+    void Xbox()
+    {
+
+        // Movement
+        f = Input.GetAxis("accelerator_XBOX");
+        // the put that float in accel
+        h = Input.GetAxis("Horizontal_XBOX") * rotationSpeed;
+        v = Input.GetAxis("Vertical_XBOX") * rotationSpeed;
+        //alternative  control inside the inputs
+        x = Input.GetAxis("Mouse X_XBOX") * Time.deltaTime * rotationSpeed;
+     
+        y = Input.GetAxis("Mouse Y_XBOX") * Time.deltaTime * rotationSpeed;
+    }
+    void playstation()
+    {
+
+        // Movement
+        f = Input.GetAxis("accelerator_PS3");
+        // the put that float in accel
+        h = Input.GetAxis("Horizontal_PS3") * rotationSpeed;
+        v = Input.GetAxis("Vertical_PS3") * rotationSpeed;
+        //alternative  control inside the inputs
+        x = Input.GetAxis("Mouse X_PS3") * Time.deltaTime * rotationSpeed;
+                y = Input.GetAxis("Mouse Y_PS3") * Time.deltaTime * rotationSpeed;
+
+    }
+
+    void computer()
+    {
+
+        // Movement
+        f = Input.GetAxis("accelerator_PC");
+        // the put that float in accel
+        h = Input.GetAxis("Horizontal_PC") * rotationSpeed;
+        v = Input.GetAxis("Vertical_PC") * rotationSpeed;
+        //alternative  control inside the inputs
+        x = Input.GetAxis("Mouse X_PC") * Time.deltaTime * rotationSpeed;
+        y = Input.GetAxis("Mouse Y_PC") * Time.deltaTime * rotationSpeed;
+
+    }
+
+    private float lastSynchronizationTime = 0f;				//network values to send position and rotation to others
 	private float syncDelay = 0f;
 	private float syncTime = 0f;
 	private Vector3 syncStartPosition = Vector3.zero;
 	private Vector3 syncEndPosition = Vector3.zero;
 	private Quaternion syncStartRotation = Quaternion.identity;
 	private Quaternion syncEndRotation = Quaternion.identity;
+
+ 
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{

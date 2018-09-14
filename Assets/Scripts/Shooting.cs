@@ -28,15 +28,16 @@ public class Shooting : MonoBehaviour
 
 	void firePrimary() 
 	{
-		if(Input.GetButton("Fire1") && Time.time > NextFire)
+		if(Input.GetButton("Fire1_PC") || (Input.GetButton("Fire1_XBOX") || (Input.GetButton("Fire1_PS3") && Time.time > NextFire)))
 		{
 			//PM.Make(Bullet,ProjectileSpawn,Bulletcount);
 			GameObject prime = (GameObject)Network.Instantiate(Bullet,ProjectileSpawn.position,ProjectileSpawn.rotation,0);
 			prime.transform.GetComponent<Rigidbody>().velocity = ProjectileSpawn.transform.forward * prime.GetComponent<SpitWad>().speed;
 			NextFire = Time.time + RateOfFire;
 		}
-		if(Input.GetButton("Fire2"))
-		{
+		if (Input.GetButton("Fire2_PC") || (Input.GetButton("Fire2_XBOX") || (Input.GetButton("Fire2_PS3"))))
+
+        {
 			Debug.Log("Secorndary Button Works");
 			if(Secondary != null)
 			{
@@ -49,7 +50,6 @@ public class Shooting : MonoBehaviour
 			}
 		}
 	}
-
 	void Update () 
 	{
 		if(GetComponent<NetworkView>().isMine)
