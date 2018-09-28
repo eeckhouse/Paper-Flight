@@ -676,3 +676,4 @@ LogInit: Object subsystem initialized
 [2018.09.18-18.16.08:234][791]LogClient: High resolution screenshot saved as D:/Documents/paper/Paper-Flight/Archive/Archive/Saved/Screenshots/Windows/HighresScreenshot00005.png
 [2018.09.18-18.16.08:245][792]LogRenderer: Reallocating scene render targets to support 904x740 Format 10 NumSamples 1 (Frame:23433).
 [2018.09.18-18.16.27:940][973]LogSlate: Window 'High Resolution Screenshot' being destroyed
+[2018.09.18-18.52.10:932][ 51]LogSlate: FSceneViewport::OnFocusLost() reason 0
