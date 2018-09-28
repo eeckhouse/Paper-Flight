@@ -391,6 +391,21 @@ MonoBehaviour:
   rotationSpeed: 100
   selected: 0
   accelspeed: 16
+  accelerator_PC: accelerator_PC_Player2
+  Horizontal_PC: Horizontal_PC_Player2
+  Vertical_PC: Vertical_PC_Player2
+  MouseX_PC: Mouse X_PC_Player2
+  MouseY_PC: Mouse Y_PC_Player2
+  accelerator_XBOX: accelerator_XBOX_Player2
+  Horizontal_XBOX: Horizontal_XBOX_Player2
+  Vertical_XBOX: Vertical_XBOX_Player2
+  MouseX_XBOX: Mouse X_XBOX_Player2
+  MouseY_XBOX: Mouse Y_XBOX_Player2
+  accelerator_PS3: accelerator_PS3_Player2
+  Horizontal_PS3: Horizontal_PS3_Player2
+  Vertical_PS3: Vertical_PS3_Player2
+  MouseX_PS3: Mouse X_PS3_Player2
+  MouseY_PS3: Mouse Y_PS3_Player2
   Target: {fileID: 400006}
   originalRotationValue: {fileID: 0}
 --- !u!114 &11400004
@@ -410,6 +425,12 @@ MonoBehaviour:
   RateOfFire: 0.25
   Secondary: {fileID: 0}
   secondarySpeed: 300
+  fire1_PC: Fire1_PC
+  fire1_XBOX: Fire1_XBOX
+  fire1_PS3: Fire1_PS3
+  fire2_PC: Fire2_PC
+  fire2_XBOX: Fire2_XBOX
+  fire2_PS3: Fire2_PS3
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

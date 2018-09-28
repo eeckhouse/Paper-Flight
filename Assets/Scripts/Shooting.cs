@@ -12,12 +12,19 @@ public class Shooting : MonoBehaviour
 	public float RateOfFire;
 	public GameObject Secondary;
 	public float secondarySpeed = 300;
-	
+
+    public string fire1_PC= "Fire1_PC_Player1";
+    public string fire1_XBOX = "Fire1_XBOX_Player1";
+    public string fire1_PS3 = "Fire1_PS3_Player1";
+
+    public string fire2_PC = "Fire2_PC_Player1";
+    public string fire2_XBOX = "Fire2_XBOX_Player1";
+    public string fire2_PS3 = "Fire2_PS3_Player1";
     /*
      * add input to the input manager for the xbox controller in project for the trigger buttons
      */
 
-	void Start()
+    void Start()
 	{
 		if(GetComponent<NetworkView>().isMine)
 		{
@@ -25,17 +32,17 @@ public class Shooting : MonoBehaviour
 			//PM.Make(Bullet,ProjectileSpawn,Bulletcount);
 		}
 	}
-
+  
 	void firePrimary() 
 	{
-		if(Input.GetButton("Fire1_PC") || (Input.GetButton("Fire1_XBOX") || (Input.GetButton("Fire1_PS3") && Time.time > NextFire)))
+		if(Input.GetButton(fire1_PC) || (Input.GetButton(fire1_XBOX) || (Input.GetButton(fire1_PS3) && Time.time > NextFire)))
 		{
 			//PM.Make(Bullet,ProjectileSpawn,Bulletcount);
 			GameObject prime = (GameObject)Network.Instantiate(Bullet,ProjectileSpawn.position,ProjectileSpawn.rotation,0);
 			prime.transform.GetComponent<Rigidbody>().velocity = ProjectileSpawn.transform.forward * prime.GetComponent<SpitWad>().speed;
 			NextFire = Time.time + RateOfFire;
 		}
-		if (Input.GetButton("Fire2_PC") || (Input.GetButton("Fire2_XBOX") || (Input.GetButton("Fire2_PS3"))))
+		if (Input.GetButton(fire2_PC) || (Input.GetButton(fire2_XBOX) || (Input.GetButton(fire2_PS3))))
 
         {
 			Debug.Log("Secorndary Button Works");

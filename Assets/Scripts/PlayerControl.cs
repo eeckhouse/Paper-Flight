@@ -22,6 +22,29 @@ public class PlayerControl : MonoBehaviour
     private int PS4_Controller = 0;
     private int computerControls = 0;
 
+
+    //public varible for the computer 
+    public string accelerator_PC = "accelerator_PC_Player1";
+    public string Horizontal_PC = "Horizontal_PC_Player1";
+    public string Vertical_PC = "Vertical_PC_Player1";
+    public string MouseX_PC = "Mouse X_PC_Player1";
+    public string MouseY_PC = "Mouse Y_PC";
+
+    //Xbox controls public varibles
+    public string accelerator_XBOX = "accelerator_XBOX_Player1";
+    public string Horizontal_XBOX = "Horizontal_XBOX_Player1";
+    public string Vertical_XBOX = "Vertical_XBOX_Player1";
+    public string MouseX_XBOX = "Mouse X_XBOX_Player1";
+    public string MouseY_XBOX = "Mouse Y_XBOX";
+
+    //Playstation controls public varibles
+    public string accelerator_PS3 = "accelerator_PS3_Player1";
+    public string Horizontal_PS3 = "Horizontal_PS3_Player1";
+    public string Vertical_PS3 = "Vertical_PS3_Player1";
+    public string MouseX_PS3 = "Mouse X_PS3_Player1";
+    public string MouseY_PS3= "Mouse Y_PS3_Player1";
+
+
     public Transform Target;
 
     float h;
@@ -117,40 +140,40 @@ public class PlayerControl : MonoBehaviour
     {
 
         // Movement
-        f = Input.GetAxis("accelerator_XBOX");
+        f = Input.GetAxis(accelerator_XBOX);
         // the put that float in accel
-        h = Input.GetAxis("Horizontal_XBOX") * rotationSpeed;
-        v = Input.GetAxis("Vertical_XBOX") * rotationSpeed;
+        h = Input.GetAxis(Horizontal_XBOX) * rotationSpeed;
+        v = Input.GetAxis(Vertical_XBOX) * rotationSpeed;
         //alternative  control inside the inputs
-        x = Input.GetAxis("Mouse X_XBOX") * Time.deltaTime * rotationSpeed;
+        x = Input.GetAxis(MouseX_XBOX) * Time.deltaTime * rotationSpeed;
      
-        y = Input.GetAxis("Mouse Y_XBOX") * Time.deltaTime * rotationSpeed;
+        y = Input.GetAxis(MouseY_XBOX) * Time.deltaTime * rotationSpeed;
     }
     void playstation()
     {
 
         // Movement
-        f = Input.GetAxis("accelerator_PS3");
+        f = Input.GetAxis(accelerator_PS3);
         // the put that float in accel
-        h = Input.GetAxis("Horizontal_PS3") * rotationSpeed;
-        v = Input.GetAxis("Vertical_PS3") * rotationSpeed;
+        h = Input.GetAxis(Horizontal_PS3) * rotationSpeed;
+        v = Input.GetAxis(Vertical_PS3) * rotationSpeed;
         //alternative  control inside the inputs
-        x = Input.GetAxis("Mouse X_PS3") * Time.deltaTime * rotationSpeed;
-                y = Input.GetAxis("Mouse Y_PS3") * Time.deltaTime * rotationSpeed;
+        x = Input.GetAxis(MouseX_PS3) * Time.deltaTime * rotationSpeed;
+        y = Input.GetAxis(MouseY_PS3) * Time.deltaTime * rotationSpeed;
 
     }
 
     void computer()
     {
-
+        
         // Movement
-        f = Input.GetAxis("accelerator_PC");
+        f = Input.GetAxis(accelerator_PC);
         // the put that float in accel
-        h = Input.GetAxis("Horizontal_PC") * rotationSpeed;
-        v = Input.GetAxis("Vertical_PC") * rotationSpeed;
+        h = Input.GetAxis(Horizontal_PC) * rotationSpeed;
+        v = Input.GetAxis(Vertical_PC) * rotationSpeed;
         //alternative  control inside the inputs
-        x = Input.GetAxis("Mouse X_PC") * Time.deltaTime * rotationSpeed;
-        y = Input.GetAxis("Mouse Y_PC") * Time.deltaTime * rotationSpeed;
+        x = Input.GetAxis(MouseX_PC) * Time.deltaTime * rotationSpeed;
+        y = Input.GetAxis(MouseY_PC) * Time.deltaTime * rotationSpeed;
 
     }
 
