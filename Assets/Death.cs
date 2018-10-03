@@ -14,6 +14,8 @@ public class Death : MonoBehaviour {
     public Animation planeExplosion;
     public PlayerData player;
 
+    public float respawnPlayerTimer;
+    
     // Use this for initialization
     void Start () {
         player = PlayerData.Instance;
@@ -47,16 +49,28 @@ public class Death : MonoBehaviour {
        else if (player.currentHealth <= 0)
         {
             explosion.SetActive(true);
-            //spawn explosion particle
-            //explosion animation,
-            planeExplosion.Play();
+            //planeExplosion.Play();
 
         }
+        Respawn();
 
     }
-    
-    
-    //respawn player after timer will need to check before writing more code
+
+    void Respawn()
+    {
+        bool RespawnTimer = false;
+       for(float currentTime = 0;currentTime<= respawnPlayerTimer ;)
+        {
+            currentTime+= currentTime* Time.deltaTime;
+            //respawn player after timer will need to check before writing more code
+            RespawnTimer = true;
+        }
+
+       if(RespawnTimer)
+        { 
+
+        }
+    }
     
 
 
