@@ -47,7 +47,7 @@ public class HealthbarTextScript : MonoBehaviour
 		if(GetComponent<NetworkView>().isMine)
 		{
 			player.currentHealth -= damage;
-
+            
 			if(player.currentHealth <= 0)
 			{
 				NetMan.SetPlayerScores(attacker);
@@ -67,6 +67,8 @@ public class HealthbarTextScript : MonoBehaviour
 		PlayerC.enabled = false;										//all actions are disabled, shooting, moving and the explosoin is instantiated
 		Shoot.enabled = false;
 		GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        // animation is not scripted in
 		Network.Instantiate (explosionPrefab, transform.position, transform.rotation,0);
 
 		yield return new WaitForSeconds (waitTime);											

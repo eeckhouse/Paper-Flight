@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class start1 : MonoBehaviour {
 
 	void OnGUI()
@@ -16,14 +16,17 @@ public class start1 : MonoBehaviour {
 			//this moght need to be different and realign the start key
 			//loads to level1
 			Application.LoadLevel ("Level1");
+            // use scene manager
 		}
 		else if (GUI.Button (new Rect(Screen.width/2,Screen.height/1.4f, 100, 25), "Refresh")) 
 		{
 			
 
 			Application.LoadLevel ("Level1");
-		}
-	}
+            // use scene manager
+
+        }
+    }
 	// Use this for initialization
 	void Start () {
 
