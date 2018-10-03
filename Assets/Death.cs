@@ -8,36 +8,45 @@ public class Death : MonoBehaviour {
 
 
 
-    //what needs to done??? First need to get current healt from the script then. If current health is 0 the plane explodes,
     //with spawn explosion particle affect
     //pacticle e
     public GameObject lowHealth25,lowHealth50,explosion;
     public Animation planeExplosion;
+    public PlayerData player;
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+        player = PlayerData.Instance;
+        }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if(currentHealth<=50)
+        if(player.currentHealth >50)
+        {
+
+            // then disable particle effects
+            lowHealth50.SetActive(false);
+            lowHealth50.SetActive(false);
+            lowHealth50.SetActive(false);
+        }
+
+        else if(player.currentHealth<=50)
         {
             //spawn smoke at 50%
-
-
+            lowHealth50.SetActive(true);
+          
         }
 
-        if (currentHealth<=25)
+        else if (player.currentHealth <= 25)
         {
             // if the current health is at 25% the plane is on fire
-
+            lowHealth25.SetActive(true);
         }
 
-        if (currentHealth<=null)
+       else if (player.currentHealth <= 0)
         {
+            explosion.SetActive(true);
             //spawn explosion particle
             //explosion animation,
             planeExplosion.Play();
@@ -45,7 +54,9 @@ public class Death : MonoBehaviour {
         }
 
     }
-
+    
+    
+    //respawn player after timer will need to check before writing more code
     
 
 
