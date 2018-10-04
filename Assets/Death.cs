@@ -11,7 +11,7 @@ public class Death : MonoBehaviour {
     //with spawn explosion particle affect
     //pacticle e
     public GameObject lowHealth25,lowHealth50,explosion;
-    public Animation planeExplosion;
+    public AnimationClip planeExplosion;
     public PlayerData player;
 
     public float respawnPlayerTimer;
@@ -28,9 +28,9 @@ public class Death : MonoBehaviour {
         {
 
             // then disable particle effects
+            lowHealth25.SetActive(false);
             lowHealth50.SetActive(false);
-            lowHealth50.SetActive(false);
-            lowHealth50.SetActive(false);
+            explosion.SetActive(false);
         }
 
         else if(player.currentHealth<=50)
@@ -49,7 +49,9 @@ public class Death : MonoBehaviour {
        else if (player.currentHealth <= 0)
         {
             explosion.SetActive(true);
-            //planeExplosion.Play();
+            // add delay before respawning
+            Instantiate(planeExplosion,transform.position,transform.rotation);
+            Destroy(gameObject);
 
         }
         Respawn();
@@ -68,6 +70,7 @@ public class Death : MonoBehaviour {
 
        if(RespawnTimer)
         { 
+            //add spawn point
 
         }
     }

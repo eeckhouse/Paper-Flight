@@ -710,7 +710,7 @@ MonoBehaviour:
   lowHealth25: {fileID: 1451378444057864}
   lowHealth50: {fileID: 1198098371114470}
   explosion: {fileID: 1623623768035670}
-  planeExplosion: {fileID: 0}
+  planeExplosion: {fileID: 7400000, guid: b4e079aa2c5a662459eb3afa07d9b143, type: 3}
   respawnPlayerTimer: 0
 --- !u!198 &198046557009565628
 ParticleSystem:
